@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import BookShelf from "./BookShelf";
 class ListBooks extends Component {
   render() {
-    const { books, shelve } = this.props;
+    const { books, shelve, changeBookShelf } = this.props;
     console.log(" shelve", shelve);
     return (
       <div className="list-books">
@@ -13,8 +13,7 @@ class ListBooks extends Component {
         <div className="list-books-content">
           <div>
             {shelve.map((shelf) => {
-              console.log(" shelve", shelf);
-              return <BookShelf books={books} shelf={shelf}></BookShelf>;
+              return <BookShelf books={books} shelf={shelf} changeBookShelf={changeBookShelf}></BookShelf>;
             })}
           </div>
         </div>
