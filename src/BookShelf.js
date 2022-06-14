@@ -13,7 +13,7 @@ class BookShelf extends Component {
             {books.map((book) => {
               if (book.shelf === shelfname) {
                 return (
-                  <li key={book.title}>
+                  <li key={book.id}>
                     <Book bookInfo={book} changeBookShelf={changeBookShelf}/>
                   </li>
                 );
