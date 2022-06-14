@@ -8,8 +8,8 @@ import { Routes, Route } from "react-router-dom";
 class BooksApp extends React.Component {
   state = {
     books: [],
-    shelve:['currentlyReading','wantToRead','read'],
-    searchBools:[]
+    shelve: ["currentlyReading", "wantToRead", "read"],
+    searchBools: [],
   };
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
@@ -18,24 +18,39 @@ class BooksApp extends React.Component {
       }));
     });
   }
-  changeBookShelf=async (selectedbook,shelf)=>{
-    await BooksAPI.update(selectedbook,shelf);
-    await BooksAPI.getAll().then((books)=>{
-       this.setState(()=>({
-         books,
-       }))
-     })
-
- 
-  }
+  changeBookShelf = async (selectedbook, shelf) => {
+    await BooksAPI.update(selectedbook, shelf);
+    await BooksAPI.getAll().then((books) => {
+      this.setState(() => ({
+        books,
+      }));
+    });
+  };
 
   render() {
-   // console.log(this.state.books);
+    // console.log(this.state.books);
     return (
       <div className="app">
         <Routes>
-          <Route path="/" element={<ListBooks books={this.state.books}  shelve={this.state.shelve}  changeBookShelf={this.changeBookShelf}/>} />
-          <Route path="/search" element={<SearchPage books={this.state.books} changeBookShelf={this.changeBookShelf}/>} />
+          <Route
+            path="/"
+            element={
+              <ListBooks
+                books={this.state.books}
+                shelve={this.state.shelve}
+                changeBookShelf={this.changeBookShelf}
+              />
+            }
+          />
+          <Route
+            path="/search"
+            element={
+              <SearchPage
+                books={this.state.books}
+                changeBookShelf={this.changeBookShelf}
+              />
+            }
+          />
         </Routes>
       </div>
     );

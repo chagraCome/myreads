@@ -3,7 +3,7 @@ import { Component } from "react";
 import Book from "./Book";
 class BookShelf extends Component {
   render() {
-    const { books, shelf, changeBookShelf} = this.props;
+    const { books, shelf, changeBookShelf } = this.props;
     const shelfname = shelf;
     return (
       <div className="bookshelf">
@@ -14,7 +14,7 @@ class BookShelf extends Component {
               if (book.shelf === shelfname) {
                 return (
                   <li key={book.id}>
-                    <Book bookInfo={book} changeBookShelf={changeBookShelf}/>
+                    <Book bookInfo={book} changeBookShelf={changeBookShelf} />
                   </li>
                 );
               }

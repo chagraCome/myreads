@@ -11,7 +11,6 @@ class SearchPage extends Component {
     await this.setState(() => ({
       query: query.trim(),
     }));
-    console.log("query now", query);
     this.searchbook(this.state.query);
   };
   searchbook = async (query) => {
@@ -22,14 +21,13 @@ class SearchPage extends Component {
           : this.setState(() => ({ bibliot: res }));
       });
     }
-    console.log("biblio", this.state.bibliot);
   };
 
   render() {
     const { query, bibliot } = this.state;
     const { books, changeBookShelf } = this.props;
     const showcase = () => {
-      if (query.length == 0) {
+      if (query.length === 0) {
         return (
           <div>
             {" "}
@@ -67,14 +65,13 @@ class SearchPage extends Component {
           if (!book.shelf) {
             book.shelf = "none";
           }
-
           return (
             <li key={book.id}>
               <Book bookInfo={book} changeBookShelf={changeBookShelf} />
             </li>
           );
         });
-      } else if (bibliot.length == 0 && query.length > 0) {
+      } else if (bibliot.length === 0 && query.length > 0) {
         return (
           <p>
             we don't have what you are looking for, please choose other term
@@ -89,14 +86,6 @@ class SearchPage extends Component {
             <button className="close-search">Close</button>
           </Link>
           <div className="search-books-input-wrapper">
-            {/*
-                  NOTES: The search from BooksAPI is limited to a particular set of search terms.
-                  You can find these search terms here:
-                  https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md
-
-                  However, remember that the BooksAPI.search method DOES search by title or author. So, don't worry if
-                  you don't find a specific author or title. Every search is limited by search terms.
-                */}
             <input
               type="text"
               placeholder="Search by title or author"
