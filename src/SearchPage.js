@@ -7,11 +7,12 @@ class SearchPage extends Component {
     query: "",
     biblio:[]
   };
-  searchbook = async(event) => {
-    this.setState({
-      query:event.target.value
-    })
-    console.log(this.state.query)
+  updateQuery = (query) => {
+    this.setState(() => ({
+      query: query.trim(),
+    }));
+  };
+  searchbook = async() => {
     await BooksAPI.search(this.state.query).then((biblio) => {
       this.setState(() => ({
    biblio,
@@ -19,9 +20,10 @@ class SearchPage extends Component {
     });
     console.log(this.state.biblio)
     }
+
   render() {
     const { query,biblio} = this.state;
-    const { books, changeBookShelf} = this.props;
+    const { changeBookShelf} = this.props;
  
     return (
       <div className="search-books">
@@ -30,6 +32,7 @@ class SearchPage extends Component {
             <button className="close-search">Close</button>
           </Link>
           <div className="search-books-input-wrapper">
+          
             {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
                   You can find these search terms here:
@@ -41,20 +44,15 @@ class SearchPage extends Component {
             <input
               type="text"
               placeholder="Search by title or author"
-              onChange={this.searchbook}
+              value={query}
+              onChange={(event) => this.updateQuery(event.target.value)}
             />
           </div>
         </div>
         <div className="search-books-results">
-          <p>{this.query}</p>
+          <p>{query}</p>
           <ol className="books-grid">
-            {this.state.biblio.map((book)=>{
-               return (
-                <li key={book.title}>
-                  <Book bookInfo={book} changeBookShelf={changeBookShelf}/>
-                </li>
-              );
-            })}
+     
           </ol>
         </div>
       </div>

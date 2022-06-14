@@ -30,12 +30,12 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    console.log(this.state.books);
+   // console.log(this.state.books);
     return (
       <div className="app">
         <Routes>
           <Route path="/" element={<ListBooks books={this.state.books}  shelve={this.state.shelve}  changeBookShelf={this.changeBookShelf}/>} />
-          <Route path="/search" element={<SearchPage books={this.state.books} changeBookShelf={this.changeBookShelf}/>} />
+          <Route path="/search" element={<SearchPage changeBookShelf={this.changeBookShelf}/>} />
         </Routes>
       </div>
     );
