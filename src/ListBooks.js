@@ -11,11 +11,13 @@ class ListBooks extends Component {
           <h1>MyReads</h1>
         </div>
         <div className="list-books-content">
-          <div>
-            {shelve.map((shelf) => {
-              return <BookShelf books={books} shelf={shelf} changeBookShelf={changeBookShelf}></BookShelf>;
-            })}
-          </div>
+          
+            {shelve.map((shelf) => (
+              <div key={shelf}>
+              <BookShelf books={books} shelf={shelf} changeBookShelf={changeBookShelf}></BookShelf>
+              </div>
+            ))}
+        
         </div>
 
         <Link to="/search">
