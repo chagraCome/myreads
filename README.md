@@ -1,15 +1,32 @@
 # MyReads Project
 
-This is a project to track your books list 
-we have two pages
+This is a project to track your books list :
+we have two pages that user can navigate between 
 
-Home Page: we have 3 shelves:
+Home Page: 
+<img width="835" alt="image" src="https://user-images.githubusercontent.com/18313675/173681315-2b5472eb-7a01-4e52-a7db-b5217d49e96c.png">
+
+we have 3 shelves:
 * Currently Reading
 * Want To Read 
 * Read
 
 Search Page:
 search for book and you can add it to the Home Page
+<img width="832" alt="image" src="https://user-images.githubusercontent.com/18313675/173681523-d8fab7f3-6693-4421-bacf-248d3aec0813.png">
+
+there is a list for search terms, user can use one of them to search a book
+ 
+ <img width="826" alt="image" src="https://user-images.githubusercontent.com/18313675/173681785-c9158791-ee7c-46b5-8ec3-5e951333438c.png">
+
+ONCE user likes a book, he/she can add it to their HomePage and can choose in which shelf wants to put the book 
+
+<img width="837" alt="image" src="https://user-images.githubusercontent.com/18313675/173682059-cd132fc9-f349-4f47-be48-34ead1374183.png">
+ 
+after the user choose which shelf to put the book on it, when going back to home page , the book will be in the choosen shelf 
+
+<img width="832" alt="image" src="https://user-images.githubusercontent.com/18313675/173682405-6d8b1154-5c97-4471-a8c0-3f1fb6f08f18.png">
+
 ## Installation
 
 * download the project or clone the repo
